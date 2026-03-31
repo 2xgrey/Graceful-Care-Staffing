@@ -25,34 +25,35 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-xl shadow-sm py-4' : 'bg-transparent py-6'}`}>
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-sm border-b border-slate-200/50 py-3' : 'bg-transparent py-5'}`}>
+      <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-teal-500 rounded-xl flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-300">
+          <a href="#" className="flex items-center gap-2 group">
+            <div className="w-10 h-10 bg-gradient-to-br from-indigo-600 to-cyan-500 rounded-xl flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:scale-105 transition-transform duration-300">
               <HeartPulse className="w-6 h-6" />
             </div>
-            <span className="text-2xl font-extrabold text-slate-900 tracking-tight">Graceful Care.</span>
+            <span className="text-xl font-bold text-slate-900 tracking-tight">Graceful Care</span>
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <a href="#facilities" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">For Facilities</a>
-            <a href="#professionals" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">For Professionals</a>
-            <a href="#locations" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">Locations</a>
-            <a href="#about" className="text-sm font-semibold text-slate-600 hover:text-teal-600 transition-colors">About Us</a>
+          <nav className="hidden md:flex items-center gap-8">
+            <a href="#home" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Home</a>
+            <a href="#facilities" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">For Facilities</a>
+            <a href="#professionals" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">For Professionals</a>
+            <a href="#about" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">About</a>
+            <a href="#contact" className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Contact</a>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-6">
-            <a href="#apply" className="text-sm font-bold text-slate-700 hover:text-teal-600 transition-colors">Apply for Jobs</a>
-            <a href="#request" className="px-6 py-3 bg-slate-900 hover:bg-black text-white rounded-full text-sm font-bold transition-all shadow-md hover:shadow-lg">
-              Request Staff
+          <div className="hidden md:flex items-center gap-4">
+            <a href="#contact" className="text-sm font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">Log In</a>
+            <a href="#contact" className="px-5 py-2.5 bg-indigo-600 text-white rounded-full text-sm font-semibold transition-all btn-primary">
+              Get Started
             </a>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-slate-600"
+            className="md:hidden p-2 text-slate-600"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -67,16 +68,17 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-t border-slate-100 overflow-hidden shadow-xl absolute w-full"
+            className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
           >
-            <div className="flex flex-col px-6 py-8 gap-6">
-              <a href="#facilities" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-800">For Facilities</a>
-              <a href="#professionals" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-800">For Professionals</a>
-              <a href="#locations" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-800">Locations</a>
-              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-bold text-slate-800">About Us</a>
-              <div className="flex flex-col gap-4 mt-4 pt-6 border-t border-slate-100">
-                <a href="#apply" className="w-full py-4 text-center border-2 border-slate-200 rounded-full font-bold text-slate-800">Apply for Jobs</a>
-                <a href="#request" className="w-full py-4 text-center bg-slate-900 text-white rounded-full font-bold shadow-md">Request Staff</a>
+            <div className="flex flex-col px-4 py-6 gap-4">
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-800 py-2 border-b border-slate-50">Home</a>
+              <a href="#facilities" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-800 py-2 border-b border-slate-50">For Facilities</a>
+              <a href="#professionals" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-800 py-2 border-b border-slate-50">For Professionals</a>
+              <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-800 py-2 border-b border-slate-50">About</a>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-medium text-slate-800 py-2 border-b border-slate-50">Contact</a>
+              <div className="flex flex-col gap-3 mt-4">
+                <a href="#contact" className="w-full py-3 text-center border border-slate-200 rounded-xl font-semibold text-slate-800">Log In</a>
+                <a href="#contact" className="w-full py-3 text-center bg-indigo-600 text-white rounded-xl font-semibold shadow-md">Get Started</a>
               </div>
             </div>
           </motion.div>
@@ -88,132 +90,94 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative pt-40 pb-24 lg:pt-56 lg:pb-32 overflow-hidden bg-white">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-50/50 rounded-full blur-3xl pointer-events-none"></div>
-      
-      <div className="container mx-auto px-4 md:px-8 max-w-5xl relative z-10 text-center">
-        <motion.div 
-          initial={{opacity: 0, y: 20}} 
-          animate={{opacity: 1, y: 0}} 
-          transition={{ type: "spring", stiffness: 100, damping: 20 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 text-teal-700 font-bold text-xs tracking-widest uppercase mb-8">
-            <div className="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></div>
-            #1 HEALTHCARE STAFFING IN KANSAS CITY & MISSOURI
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight mb-8 text-slate-900 leading-[1.05]">
-            Premium Healthcare <br className="hidden md:block" />
-            Staffing, <span className="text-teal-500">Elevated.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Connecting top-tier nursing professionals with leading healthcare facilities across Kansas City and Missouri. Seamless, reliable, and compassionate care on demand.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="#request" className="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-black text-white rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 group">
-              Request Staff Now <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a href="#apply" className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 border-2 border-slate-200 rounded-full font-bold text-lg transition-all shadow-sm flex items-center justify-center gap-2">
-              Apply as a Professional
-            </a>
-          </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-};
-
-const ForFacilities = () => {
-  return (
-    <section id="facilities" className="py-24 lg:py-32 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Left Content */}
+    <section id="home" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden mesh-bg">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div 
-            initial={{opacity: 0, x: -30}}
-            whileInView={{opacity: 1, x: 0}}
-            viewport={{once: true}}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
+            initial={{opacity: 0, y: 20}} 
+            animate={{opacity: 1, y: 0}} 
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
           >
-            <span className="text-teal-600 font-bold tracking-widest uppercase text-sm mb-6 block">For Healthcare Facilities</span>
-            <h2 className="text-4xl md:text-5xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-[1.15]">
-              Fill shifts instantly with pre-vetted, reliable professionals.
-            </h2>
-            <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-              Stop worrying about call-outs and staffing shortages. Graceful Care Staffing provides a seamless platform to request RNs, LPNs, and CNAs exactly when you need them.
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-md border border-slate-200/60 text-indigo-700 font-medium text-sm mb-8 shadow-sm">
+              <MapPin className="w-4 h-4 text-indigo-500" />
+              Proudly serving the Kansas City Metro & Missouri
+            </div>
+            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8 text-slate-900 leading-[1.05]">
+              Healthcare Staffing, <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-cyan-500">Simplified.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+              Connect with top-tier healthcare facilities or find the perfect shifts that fit your life. Fast, reliable, and built for modern healthcare professionals.
             </p>
-            
-            <div className="space-y-8 mb-10">
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mt-1">
-                  <Check className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Rigorous Vetting Process</h4>
-                  <p className="text-slate-600">Every professional undergoes strict background checks, credential verification, and interviews.</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mt-1">
-                  <Check className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Zero Upfront Costs</h4>
-                  <p className="text-slate-600">Only pay for the hours worked. No hidden fees or subscription traps.</p>
-                </div>
-              </div>
-              
-              <div className="flex gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 mt-1">
-                  <Check className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-bold text-slate-900 mb-1">Dedicated Account Manager</h4>
-                  <p className="text-slate-600">Get personalized support from a local Kansas City expert who understands your facility's needs.</p>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-indigo-600 text-white rounded-full font-semibold text-lg transition-all btn-primary flex items-center justify-center gap-2 group">
+                Find Staff <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a href="#contact" className="w-full sm:w-auto px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 border border-slate-200 rounded-full font-semibold text-lg transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 group">
+                Find Jobs <Briefcase className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
+              </a>
             </div>
-            
-            <a href="#contact" className="inline-flex items-center gap-2 text-teal-600 font-bold text-lg hover:text-teal-700 transition-colors group">
-              Partner with us today <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <p className="mt-8 text-sm text-slate-500 font-medium flex items-center justify-center gap-2">
+              <Clock className="w-4 h-4 text-amber-500" /> Limited premium slots available this month
+            </p>
           </motion.div>
-
-          {/* Right Image/Mockup */}
-          <motion.div 
-            initial={{opacity: 0, x: 30}}
-            whileInView={{opacity: 1, x: 0}}
-            viewport={{once: true}}
-            transition={{ type: "spring", stiffness: 80, damping: 20 }}
-            className="relative"
-          >
-            <div className="aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden bg-slate-100 relative shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1000" 
-                alt="Healthcare professionals in a meeting" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            
-            {/* Floating Badge */}
-            <div className="absolute -bottom-6 -left-6 md:-bottom-10 md:-left-10 bg-white p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-slate-100 flex items-center gap-4 z-20">
-              <div className="w-14 h-14 bg-teal-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-teal-500/30">
-                <Clock className="w-7 h-7" />
-              </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-500 mb-1">Average Fill Time</p>
-                <p className="text-2xl font-extrabold text-slate-900">&lt; 2 Hours</p>
-              </div>
-            </div>
-          </motion.div>
-          
         </div>
+
+        {/* Floating Glassmorphism Cards Mockup */}
+        <motion.div 
+          initial={{opacity: 0, y: 40}} 
+          animate={{opacity: 1, y: 0}} 
+          transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+          className="mt-20 relative max-w-5xl mx-auto"
+        >
+           <div className="relative rounded-3xl glass-card p-2 md:p-4">
+              
+              {/* Floating Badge 1 */}
+              <div className="absolute -top-8 -left-4 md:-left-10 bg-white/90 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/50 animate-float z-20">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">Shift Filled</p>
+                    <p className="text-xs text-slate-500">Just now in KC</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Badge 2 */}
+              <div className="absolute -bottom-8 -right-4 md:-right-10 bg-white/90 backdrop-blur-xl p-4 rounded-2xl shadow-xl border border-white/50 animate-float z-20" style={{animationDelay: '1.5s'}}>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900">5,000+</p>
+                    <p className="text-xs text-slate-500">Professionals</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="aspect-[16/9] md:aspect-[21/9] rounded-2xl overflow-hidden bg-slate-900 relative shadow-inner">
+                 <img 
+                  src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee4?auto=format&fit=crop&q=80&w=2000" 
+                  alt="Healthcare professionals" 
+                  className="w-full h-full object-cover opacity-60 mix-blend-overlay"
+                  referrerPolicy="no-referrer"
+                 />
+                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent flex flex-col justify-end p-6 md:p-10">
+                    <div className="text-white max-w-2xl">
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 text-yellow-400 fill-yellow-400" />)}
+                        <span className="ml-2 font-semibold text-sm md:text-base">4.9/5 Average Rating</span>
+                      </div>
+                      <h3 className="text-2xl md:text-4xl font-bold mb-3 tracking-tight">Trusted by top hospitals nationwide.</h3>
+                      <p className="text-slate-300 text-sm md:text-lg">We match the right talent with the right facilities, ensuring quality care every single shift.</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -779,11 +743,10 @@ const FloatingCTA = () => {
 
 export default function App() {
   return (
-    <div className="font-sans text-slate-900 bg-white overflow-x-hidden selection:bg-teal-200 selection:text-teal-900">
+    <div className="font-sans text-slate-900 bg-white overflow-x-hidden selection:bg-indigo-200 selection:text-indigo-900">
       <Navbar />
       <main>
         <Hero />
-        <ForFacilities />
         <Stats />
         <HowItWorks />
         <Benefits />
